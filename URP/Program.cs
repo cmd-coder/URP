@@ -19,6 +19,18 @@ namespace URP
                 else
                     break;
             }
+
+            Console.WriteLine("Enter last name");
+
+            while (true)
+            {
+                string fName = Console.ReadLine();
+                bool checkFName = obj.matchFName(fName);
+                if (!checkFName)
+                    Console.WriteLine("You have entered wrong last name. Enter again");
+                else
+                    break;
+            }
         }
     }
 }
