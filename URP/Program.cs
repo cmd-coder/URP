@@ -8,7 +8,7 @@ namespace URP
         {
             Console.WriteLine("Welcome to User Registration Program");
             patternMatch obj = new patternMatch();
-            string fName, lName, email, mobile;
+            string fName, lName, email, mobile, password;
             Console.WriteLine("Enter first name");
 
             while (true)
@@ -53,6 +53,18 @@ namespace URP
                 bool checkMobile = obj.matchMobile(mobile);
                 if (!checkMobile)
                     Console.WriteLine("You have entered wrong mobile number. Enter again");
+                else
+                    break;
+            }
+
+            Console.WriteLine("Enter password");
+
+            while (true)
+            {
+                password = Console.ReadLine();
+                bool checkPassword = obj.matchPassword(password);
+                if (!checkPassword)
+                    Console.WriteLine("You have entered wrong password. Enter again");
                 else
                     break;
             }
