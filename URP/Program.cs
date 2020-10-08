@@ -40,7 +40,7 @@ namespace URP
                 email = Console.ReadLine();
                 bool checkEmail = obj.matchEmail(email);
                 if (!checkEmail)
-                    Console.WriteLine("You have entered wrong email id. Enter again");
+                    Console.WriteLine("You have entered wrong Email Id. Enter again");
                 else
                     break;
             }
