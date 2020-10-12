@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace URP
 {
-    class patternMatch
+    public class patternMatch
     {
         string patternFName = "^[A-Z]{1}[a-zA-Z]{2,}$";
         string patternEmail = "^[a-zA-Z0-9]+([._+-][a-z0-9A-Z]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.][a-zA-A]{2})?$";
