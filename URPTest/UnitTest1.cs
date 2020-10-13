@@ -13,6 +13,7 @@ namespace URPTest
             string fName = "Firstname";
             bool result = obj.matchFName(fName);
             Assert.AreEqual(true, result);
+            
         }
 
         [TestMethod]
@@ -20,8 +21,14 @@ namespace URPTest
         {
             patternMatch obj = new patternMatch();
             string fName = "firstname";
-            bool result = obj.matchFName(fName);
-            Assert.AreEqual(true, result);
+            try
+            {
+                bool checkFName = obj.matchFName(fName);
+            }
+            catch (CustomException ce)
+            {
+                Assert.AreEqual("Invalid First Name", ce.Message);
+            }
         }
 
         [TestMethod]
@@ -38,16 +45,22 @@ namespace URPTest
         {
             patternMatch obj = new patternMatch();
             string fName = "lastname";
-            bool result = obj.matchFName(fName);
-            Assert.AreEqual(true, result);
+            try
+            {
+                bool checkLName = obj.matchLName(fName);
+            }
+            catch (CustomException ce)
+            {
+                Assert.AreEqual("Invalid Last Name", ce.Message);
+            }
         }
 
         [TestMethod]
         public void TestMethodEmail_Pass()//Test mobile email id of the user
         {
             patternMatch obj = new patternMatch();
-            string fName = "abc@cd.com";
-            bool result = obj.matchEmail(fName);
+            string email = "abc@cd.com";
+            bool result = obj.matchEmail(email);
             Assert.AreEqual(true, result);
         }
 
@@ -55,17 +68,23 @@ namespace URPTest
         public void TestMethodEmail_Fail()//Test mobile email id of the user
         {
             patternMatch obj = new patternMatch();
-            string fName = "abc@cd.com.in.as";
-            bool result = obj.matchEmail(fName);
-            Assert.AreEqual(true, result);
+            string email = "abc@cd.com.in.as";
+            try
+            {
+                bool checkEmail = obj.matchEmail(email);
+            }
+            catch (CustomException ce)
+            {
+                Assert.AreEqual("Invalid Email", ce.Message);
+            }
         }
 
         [TestMethod]
         public void TestMethodMobile_Pass()//Test mobile phone number of the user
         {
             patternMatch obj = new patternMatch();
-            string fName = "91 7894561230";
-            bool result = obj.matchMobile(fName);
+            string mobile = "91 7894561230";
+            bool result = obj.matchMobile(mobile);
             Assert.AreEqual(true, result);
         }
 
@@ -73,17 +92,23 @@ namespace URPTest
         public void TestMethodMobile_Fail()//Test mobile phone number of the user
         {
             patternMatch obj = new patternMatch();
-            string fName = "91 0894561230";
-            bool result = obj.matchMobile(fName);
-            Assert.AreEqual(true, result);
+            string mobile = "91 0894561230";
+            try
+            {
+                bool checkMobile = obj.matchMobile(mobile);
+            }
+            catch (CustomException ce)
+            {
+                Assert.AreEqual("Invalid Mobile Number", ce.Message);
+            }
         }
 
         [TestMethod]
         public void TestMethodPassword_Pass()//Test password of the user
         {
             patternMatch obj = new patternMatch();
-            string fName = "dgds!54654SDGSG";
-            bool result = obj.matchPassword(fName);
+            string password = "dgds!54654SDGSG";
+            bool result = obj.matchPassword(password);
             Assert.AreEqual(true, result);
         }
 
@@ -91,9 +116,15 @@ namespace URPTest
         public void TestMethodPassword_Fail()//Test password of the user
         {
             patternMatch obj = new patternMatch();
-            string fName = "dgds!54654SDGSG@";
-            bool result = obj.matchPassword(fName);
-            Assert.AreEqual(true, result);
+            string password = "dgds!54654SDGSG@";
+            try
+            {
+                bool checkPassword = obj.matchPassword(password);
+            }
+            catch (CustomException ce)
+            {
+                Assert.AreEqual("Invalid Password", ce.Message);
+            }
         }
     }
 }

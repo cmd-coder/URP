@@ -12,24 +12,49 @@ namespace URP
         string patternMobile = "^[1-9]{1}[0-9]{0,2}[ ][1-9]{1}[0-9]{9}$";
         string patternPassword = "((?=.*[A-Z])(?=.*[0-9])(?=^[a-zA-Z0-9]*[!@#$%^&*-+_][a-zA-Z0-9]*$)).{8,}";
         
-        public bool matchFName(string fName)
+        public bool matchFName(string fName)//Match first name and throw an exception in case of mismatch
         {
-            return Regex.IsMatch(fName, patternFName);
+            bool flag= Regex.IsMatch(fName, patternFName);
+            if (flag)
+                return flag;
+            else
+                throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid First Name");
         }
 
-        public bool matchEmail(string email)
+        public bool matchLName(string fName)//Match last name and throw an exception in case of mismatch
         {
-            return Regex.IsMatch(email, patternEmail);
+            bool flag = Regex.IsMatch(fName, patternFName);
+            if (flag)
+                return flag;
+            else
+                throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid Last Name");
         }
 
-        public bool matchMobile(string mobile)
+        public bool matchEmail(string email)//Match email and throw an exception in case of mismatch
         {
-            return Regex.IsMatch(mobile, patternMobile);
+            bool flag= Regex.IsMatch(email, patternEmail);
+            if (flag)
+                return flag;
+            else
+                throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid Email");
         }
 
-        public bool matchPassword(string password)
+        public bool matchMobile(string mobile)//Match mobile number and throw an exception in case of mismatch
         {
-            return Regex.IsMatch(password, patternPassword);
+            bool flag= Regex.IsMatch(mobile, patternMobile);
+            if (flag)
+                return flag;
+            else
+                throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid Mobile Number");
+        }
+
+        public bool matchPassword(string password)//Match password and throw an exception in case of mismatch
+        {
+            bool flag= Regex.IsMatch(password, patternPassword);
+            if (flag)
+                return flag;
+            else
+                throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid Password");
         }
     }
 }
