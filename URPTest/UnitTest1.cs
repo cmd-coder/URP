@@ -7,7 +7,7 @@ namespace URPTest
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethodFName_Pass()//Test first name of the user
+        public void matchFName_FirstName_ReturnsTrue()//Test first name of the user
         {
             patternMatch obj = new patternMatch();
             string fName = "Firstname";
@@ -17,7 +17,7 @@ namespace URPTest
         }
 
         [TestMethod]
-        public void TestMethodFName_Fail()//Test first name of the user
+        public void matchFName_FirstName_ThrowsCustomException()//Test first name of the user
         {
             patternMatch obj = new patternMatch();
             string fName = "firstname";
@@ -32,16 +32,16 @@ namespace URPTest
         }
 
         [TestMethod]
-        public void TestMethodLName_Pass()//Test last name of the user
+        public void matchLName_LastName_ReturnsTrue()//Test last name of the user
         {
             patternMatch obj = new patternMatch();
             string fName = "Lastname";
-            bool result = obj.matchFName(fName);
+            bool result = obj.matchLName(fName);
             Assert.AreEqual(true, result);
         }
 
         [TestMethod]
-        public void TestMethodLName_Fail()//Test last name of the user
+        public void matchLName_LastName_ThrowsCustomException()//Test last name of the user
         {
             patternMatch obj = new patternMatch();
             string fName = "lastname";
@@ -56,19 +56,27 @@ namespace URPTest
         }
 
         [TestMethod]
-        public void TestMethodEmail_Pass()//Test mobile email id of the user
+        [DataRow("abc@yahoo.com")]
+        [DataRow("abc-100@yahoo.com")]
+        [DataRow("abc+100@gmail.com")]
+        [DataRow("abc@gmail.com.com")]
+        public void matchEmail_Email_ReturnsTrue(string email)//Test mobile email id of the user
         {
             patternMatch obj = new patternMatch();
-            string email = "abc@cd.com";
+            //string email = "abc@cd.com";
             bool result = obj.matchEmail(email);
             Assert.AreEqual(true, result);
         }
 
         [TestMethod]
-        public void TestMethodEmail_Fail()//Test mobile email id of the user
+        [DataRow("abc")]
+        [DataRow("abc@.com.my")]
+        [DataRow("abc@gmail.com.aa.au")]
+        [DataRow("abc..2002@gmail.com")]
+        public void matchEmail_Email_ThrowsCustomException(string email)//Test mobile email id of the user
         {
             patternMatch obj = new patternMatch();
-            string email = "abc@cd.com.in.as";
+            //string email = "abc@cd.com.in.as";
             try
             {
                 bool checkEmail = obj.matchEmail(email);
@@ -80,7 +88,7 @@ namespace URPTest
         }
 
         [TestMethod]
-        public void TestMethodMobile_Pass()//Test mobile phone number of the user
+        public void matchMobile_Mobile_ReturnsTrue()//Test mobile phone number of the user
         {
             patternMatch obj = new patternMatch();
             string mobile = "91 7894561230";
@@ -89,7 +97,7 @@ namespace URPTest
         }
 
         [TestMethod]
-        public void TestMethodMobile_Fail()//Test mobile phone number of the user
+        public void matchMobile_Mobile_ThrowsCustomException()//Test mobile phone number of the user
         {
             patternMatch obj = new patternMatch();
             string mobile = "91 0894561230";
@@ -104,7 +112,7 @@ namespace URPTest
         }
 
         [TestMethod]
-        public void TestMethodPassword_Pass()//Test password of the user
+        public void matchPassword_Password_ReturnsTrue()//Test password of the user
         {
             patternMatch obj = new patternMatch();
             string password = "dgds!54654SDGSG";
@@ -113,7 +121,7 @@ namespace URPTest
         }
 
         [TestMethod]
-        public void TestMethodPassword_Fail()//Test password of the user
+        public void matchPassword_Password_ThrowsCustomException()//Test password of the user
         {
             patternMatch obj = new patternMatch();
             string password = "dgds!54654SDGSG@";
