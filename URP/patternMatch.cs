@@ -8,7 +8,7 @@ namespace URP
     public class patternMatch
     {
         string patternFName = "^[A-Z]{1}[a-zA-Z]{2,}$";
-        string patternEmail = "^[a-zA-Z0-9]+([._+-][a-z0-9A-Z]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.][a-zA-A]{2})?$";
+        string patternEmail = "^[a-zA-Z0-9]+([._+-][a-z0-9A-Z]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.][a-zA-A]{2,3})?$";
         string patternMobile = "^[1-9]{1}[0-9]{0,2}[ ][1-9]{1}[0-9]{9}$";
         string patternPassword = "((?=.*[A-Z])(?=.*[0-9])(?=^[a-zA-Z0-9]*[!@#$%^&*-+_][a-zA-Z0-9]*$)).{8,}";
         
@@ -56,5 +56,6 @@ namespace URP
             else
                 throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid Password");
         }
+
     }
 }
